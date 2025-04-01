@@ -1,0 +1,11 @@
+¿Puede ver el archivo tp2_1_2.c? ¿Por qué?
+
+No puedo ver el archivo, ya que este fue creado en la rama Opcion_2, al volver a la rama main y al no haber unido las ramas, no podre ver los cambios hechos en la rama Opcion_2.
+
+En VSCode vuelva al “Source Control” ¿Qué diferencias nota?
+
+vemos como la rama Opcion_2 va por un costado en paralelo a main. 
+
+En VSCode vuelva al “Source Control” vea los cambios, ¿Qué nota?
+
+se unifican los caminos en el grafico entre las dos ramas. 
