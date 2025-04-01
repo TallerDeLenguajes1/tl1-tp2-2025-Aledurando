@@ -11,16 +11,19 @@ srand(time(NULL)); //para randomizar los numeros del vector.
 
 int i;
 double vt[N];
+double *pvt;
+pvt=vt;
     
 
     for(i = 0;i<N; i++)
         {
-            vt[i]=1+rand()%100;
+            *(pvt+i)=1+rand()%100;
+            //vt[i]=1+rand()%100;
 
-            printf(" %f ", vt[i]);
+            printf(" %f ",*(pvt+i));
         }
 
 
     return 0;
-    }
 
+}
