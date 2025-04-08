@@ -12,12 +12,13 @@ typedef struct{
     char *tipo_cpu; // Tipo de procesador (apuntador a cadena de caracteres)
     }compu;
 
-
+void listarPCs(compu pcs[], int cantidad);
+void mostrarMasVieja(compu pcs[], int cantidad);
 
 int main(){
 
     srand(time(NULL));
-    int aux;
+    int aux,cantidad=MAXPC;
     char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core","Pentium"}; //arreglo de cpu
     compu pcs[MAXPC];
     
@@ -33,7 +34,50 @@ int main(){
 
         }
 
+        listarPCs(pcs,cantidad);
+        mostrarMasVieja(pcs,cantidad);
+
 
 
     return 0;
+}
+
+void listarPCs(compu pcs[], int cantidad){
+    printf("----------ARREGLO DE PCS---------\n");
+    for (int i=0;i<cantidad;i++){
+
+        printf("PC = %d \n",i+1);
+        printf("\tAnio de fabricacion: %d \n",pcs[i].anio);
+        printf("\tTipo de Procesador: ");
+        puts(pcs[i].tipo_cpu);
+        printf("\tVelocidad: %d Ghz \n",pcs[i].velocidad);
+        printf("\tCantidad de nucleos: %d \n\n",pcs[i].cantidad_nucleos);
+    }
+
+}
+
+void mostrarMasVieja(compu pcs[], int cantidad)
+{
+    int menor=2100,auxMenor;
+
+    for(int i=0;i<cantidad;i++){
+
+        if(pcs[i].anio<menor){
+            menor=pcs[i].anio;
+            auxMenor=i;
+
+
+        }
+
+    }
+
+    
+    printf("///////// LA PC DE MAS VIEJA ES: PC %d //////////\n",auxMenor+1);
+    printf("\tAnio de fabricacion: %d \n",pcs[auxMenor].anio);
+        printf("\tTipo de Procesador: ");
+        puts(pcs[auxMenor].tipo_cpu);
+        printf("\tVelocidad: %d Ghz \n",pcs[auxMenor].velocidad);
+        printf("\tCantidad de nucleos: %d \n\n",pcs[auxMenor].cantidad_nucleos);
+
+
 }
