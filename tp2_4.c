@@ -15,6 +15,7 @@ typedef struct{
 void listarPCs(compu pcs[], int cantidad);
 void mostrarMasVieja(compu pcs[], int cantidad);
 void mostrarMasVeloz(compu pcs[], int cantidad);
+void mostrarPC(compu pcs[],int indice);
 
 int main(){
 
@@ -47,13 +48,8 @@ int main(){
 void listarPCs(compu pcs[], int cantidad){
     printf("----------ARREGLO DE PCS---------\n");
     for (int i=0;i<cantidad;i++){
-
         printf("PC = %d \n",i+1);
-        printf("\tAnio de fabricacion: %d \n",pcs[i].anio);
-        printf("\tTipo de Procesador: ");
-        puts(pcs[i].tipo_cpu);
-        printf("\tVelocidad: %d Ghz \n",pcs[i].velocidad);
-        printf("\tCantidad de nucleos: %d \n\n",pcs[i].cantidad_nucleos);
+        mostrarPC(pcs,i);
     }
 
 }
@@ -75,11 +71,7 @@ void mostrarMasVieja(compu pcs[], int cantidad)
 
     
     printf("///////// LA PC DE MAS VIEJA ES: PC %d //////////\n",auxMenor+1);
-    printf("\tAnio de fabricacion: %d \n",pcs[auxMenor].anio);
-        printf("\tTipo de Procesador: ");
-        puts(pcs[auxMenor].tipo_cpu);
-        printf("\tVelocidad: %d Ghz \n",pcs[auxMenor].velocidad);
-        printf("\tCantidad de nucleos: %d \n\n",pcs[auxMenor].cantidad_nucleos);
+    mostrarPC(pcs,auxMenor);
 
 
 }
@@ -96,10 +88,17 @@ void mostrarMasVeloz(compu pcs[], int cantidad){
     }
 
     printf("/////////LA PC MAS VELOZ ES: PC %d ////////////\n",auxI+1);
-    printf("\tAnio de fabricacion: %d \n",pcs[auxI].anio);
-        printf("\tTipo de Procesador: ");
-        puts(pcs[auxI].tipo_cpu);
-        printf("\tVelocidad: %d Ghz \n",pcs[auxI].velocidad);
-        printf("\tCantidad de nucleos: %d \n\n",pcs[auxI].cantidad_nucleos);
+    mostrarPC(pcs,auxI);
 
+}
+
+
+void mostrarPC(compu pcs[],int indice){
+
+    printf("\tAnio de fabricacion: %d \n",pcs[indice].anio);
+    printf("\tTipo de Procesador: ");
+    puts(pcs[indice].tipo_cpu);
+    printf("\tVelocidad: %d Ghz \n",pcs[indice].velocidad);
+    printf("\tCantidad de nucleos: %d \n\n",pcs[indice].cantidad_nucleos);
+    
 }
